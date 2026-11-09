@@ -2,6 +2,8 @@
 
 Landing artesanal en español para una pastelería familiar de El Salvador. Una bienvenida animada con el retrato original de la marca, productos reales, un homenaje simbólico, galería accesible y cotizaciones por WhatsApp.
 
+Sitio publicado: **https://titis-cakes.vercel.app/**. Identidad del proyecto, versión y verificaciones en `DEPLOYMENT.md`.
+
 ## Ver y construir
 
 Requiere Node.js 22 o superior. No necesita instalar dependencias.
@@ -13,7 +15,7 @@ npm run check
 npm run build
 ```
 
-El build produce `dist/`, listo para alojamiento estático. Las rutas relativas permiten servirlo en un subdirectorio. No se ha configurado publicación automática ni dominio. El servidor local es solo para desarrollo y no debe usarse como servidor de producción.
+El build produce `dist/`, listo para alojamiento estático. Las rutas relativas permiten servirlo en un subdirectorio. `vercel.json` configura el build y la salida en Vercel. El servidor local es solo para desarrollo y no debe usarse como servidor de producción.
 
 ## Contenido y mantenimiento
 
