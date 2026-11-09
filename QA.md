@@ -8,6 +8,8 @@ Comprobado en el navegador local: escritura SVG progresiva y ángel siguiendo lo
 
 ## Ejecutado
 
+Revisión v4: inspección del video de referencia mediante fotogramas; prueba visual local de apertura con flor y estado final en escritorio y móvil simulado 390 × 844. Clic en flor inicia; completar termina con título visible y sin estado de animación; ausencia de ángel confirmada. Sin desbordamiento horizontal móvil. Syntax/build/diff vuelven a comprobarse antes de publicar. Sin prueba de teléfono físico ni medición de FPS.
+
 - `npm run check`: comprobación de sintaxis de aplicación, servidor local y build.
 - `npm run build`: generación correcta de `dist/` con assets locales.
 - Navegador integrado, escritorio (1280px de viewport): portada inspeccionada visualmente, sin desbordamiento horizontal.

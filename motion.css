@@ -1,22 +1,15 @@
-/* The welcome is a real pen path, not a rectangular reveal of printed text. */
-.writing-scene{display:none;overflow:visible;color:var(--cocoa)}
-.writing-ready h1{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.writing-ready .writing-scene{display:block;width:112%;max-width:none;height:auto;margin:-21px -6% -22px}
-.writing-ready .portrait-wrap{width:91px;height:110px;margin-bottom:0}
+/* A compact mark opens the complete identity. */
 .portrait{mix-blend-mode:normal;overflow:visible}
-.angel-position{opacity:0;pointer-events:none}
-.angel-drawing{transform-box:view-box;transform-origin:0 0;transform:scale(.8)}
-.angel-wing{transform-box:fill-box;transform-origin:right center}
-.wing-right{transform-origin:left center}
-.playing .portrait-wrap{animation:portrait-arrive 2000ms var(--ease-out) both}
-.playing .brand-tagline{animation:wordmark-in 1800ms var(--ease-out) 7800ms both}
-.playing .love-thread{animation:none;opacity:0}
-.writing-ready .love-thread{display:none}
-.writing-ready .spark{display:none}
-.playing[data-paused] .portrait-wrap,.playing[data-paused] .brand-tagline{animation-play-state:paused}
+.portrait-wrap .spark{display:none}
 .hero-brand{isolation:isolate}
+.brand-lockup{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.6vw,26px);position:relative}
+.brand-lockup h1{font-size:clamp(68px,8.5vw,140px);line-height:1.1;letter-spacing:-.075em;white-space:nowrap}
+.bloom-mark{width:clamp(44px,5.5vw,82px);height:auto;flex:none;position:relative;z-index:1}
+.bloom-trigger{display:flex;align-items:center;justify-content:center;flex:none;background:none;padding:0;min-width:44px;min-height:44px}
 .hero-stage{min-height:455px}
-.brand-tagline{margin-top:10px}
+.brand-tagline{margin-top:18px}
+.love-thread{display:block;margin:8px auto 0}
+.is-unfolding .bloom-mark{will-change:transform}
 .reveal-ready{transition:opacity 900ms var(--ease-out) var(--reveal-delay,0ms),transform 900ms var(--ease-out) var(--reveal-delay,0ms),clip-path 1100ms var(--ease-in-out) var(--reveal-delay,0ms)}
 .reveal-ready:not(.visible){opacity:0;transform:translateY(36px)}
 .product.reveal-ready:not(.visible){transform:translateY(55px) rotate(2deg)}
@@ -29,7 +22,6 @@
 .legacy-text.reveal-ready:not(.visible),.celebration-copy.reveal-ready:not(.visible){clip-path:inset(0 0 70% 0);transform:translateY(24px)}
 .legacy-text.reveal-ready.visible,.celebration-copy.reveal-ready.visible{clip-path:inset(0 0 0 0)}
 .replay{min-height:44px}
-@keyframes portrait-arrive{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media(max-width:1000px){.hero-stage{min-height:400px}}
-@media(max-width:700px){.hero-stage{min-height:0;padding-top:25px;padding-bottom:5px}.writing-ready .writing-scene{width:116%;margin:-5px -8% -8px}.writing-ready .portrait-wrap{width:82px;height:100px;margin:0 auto 9px}.brand-tagline{font-size:21px;margin-top:7px}.hero-bottom{padding-top:18px}.side-note{max-width:89px;font-size:13px}.left-note{top:18px}.right-note{top:18px}.reveal-ready{transition-duration:750ms}.product.reveal-ready:not(.visible){transform:translateY(30px) rotate(1deg)}.angel-drawing{transform:scale(.9)}}
-@media(prefers-reduced-motion:reduce){.ink-stroke{stroke-dashoffset:0!important}.angel-position{display:none}.playing .brand-tagline,.playing .portrait-wrap,.playing .spark{opacity:1!important}.reveal-ready:not(.visible){opacity:1;clip-path:none;transform:none}.celebration-photo.reveal-ready.visible{transform:rotate(-4deg)}}
+@media(max-width:700px){.hero-stage{min-height:0;padding:28px 0 16px}.brand-lockup{gap:10px}.brand-lockup h1{font-size:14.5vw}.bloom-mark{width:9vw}.portrait-wrap{width:82px;height:100px;margin:0 auto 22px}.brand-tagline{font-size:21px;margin-top:21px}.love-thread{width:220px;height:24px;margin-top:6px}.hero-bottom{padding-top:16px}.side-note{max-width:89px;font-size:13px}.left-note,.right-note{top:20px}.reveal-ready{transition-duration:750ms}.product.reveal-ready:not(.visible){transform:translateY(30px) rotate(1deg)}}
+@media(prefers-reduced-motion:reduce){.reveal-ready:not(.visible){opacity:1;clip-path:none;transform:none}.celebration-photo.reveal-ready.visible{transform:rotate(-4deg)}}

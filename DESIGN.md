@@ -60,5 +60,13 @@ WhatsApp con mensajes por contexto; galería en `dialog` nativo con Escape y ret
 
 ## Referencias
 
+### Revisión v4: una flor despliega la identidad
+
+Se inspeccionaron fotogramas del video Recording 2026-11-08 191227.mp4 aportado por el propietario. La referencia muestra una flor que aparece aislada, rota y se desplaza antes de revelar el nombre Flourish. Se toma el principio de revelado, sin reutilizar sus recursos, marca ni tipografía. No se interpreta el reproductor del video como una interacción de la web.
+
+La apertura actual reemplaza el ángel y la caligrafía por la flor rosa propia y el nombre editorial. Primero la flor aparece sola centrada; se desplaza hacia la derecha y regresa a la izquierda descubriendo el nombre con una máscara. Después entran el retrato original, lema, línea del corazón, notas y acciones. Duración aproximada: 6.7 segundos, sin bloquear navegación. Clic en la flor o botón de repetición relanzan la escena; el control de completar la termina de inmediato. Focus en una acción, resize y reduced motion completan la escena para no impedir el uso. Pestaña oculta pausa las animaciones.
+
+La coreografía usa WAAPI y transform/opacity/clip-path. Distancias calculadas desde el tamaño real del lockup; composición móvil probada a 390 × 844. Se retiran del código el ángel, sus partículas y los paths de la caligrafía anterior. La referencia de marca original sigue rigiendo colores y retrato.
+
 Manual de marca proporcionado por la familia (10 páginas, inspección visual completa).
 Mon Chou, identidad de Anna Derkach: https://www.fivestarlogo.com/post/mon-chou-bakery-coffee-bar-brand-identity-design-anna-derkach

@@ -1,58 +1,78 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const scene = document.querySelector('#brand-scene');
 const replay = document.querySelector('#replay');
-const ink = [...scene.querySelectorAll('.ink-stroke')];
-const pen = scene.querySelector('.angel-position');
-const lengths = ink.map(path => path.getTotalLength());
-// Overlapping ink gestures are independent of the angel's single continuous flight.
-const inkTiming = [[800,2100],[1600,1400],[2100,1700],[2900,1200],[3300,1000],[3700,1400],[4200,2100],[5000,1500],[5500,1800],[6400,1300],[6900,1500],[2200,300],[3400,300],[7800,1800]];
-const inkEase = 'linear';
+const bloom = scene.querySelector('.bloom-mark');
+const title = scene.querySelector('h1');
 let welcomeAnimations = [];
-scene.classList.add('writing-ready');
+const unfoldEase = 'cubic-bezier(.77,0,.175,1)';
+const enterEase = 'cubic-bezier(.23,1,.32,1)';
 function finishWelcome() {
   welcomeAnimations.forEach(animation => { animation.onfinish = null; animation.cancel(); });
   welcomeAnimations = [];
-  scene.classList.remove('is-writing', 'playing');
-  ink.forEach(path => { path.style.strokeDashoffset = '0'; });
-  pen.style.opacity = '0';
+  scene.classList.remove('is-unfolding');
   replay.innerHTML = '<span aria-hidden="true">↻</span> Volver a sentir la magia';
 }
-function playWelcome() {
-  if (reduceMotion.matches) { finishWelcome(); return; }
-  finishWelcome();
-  ink.forEach((path, i) => {
-    path.style.strokeDasharray = String(lengths[i]);
-    path.style.strokeDashoffset = '0';
-    welcomeAnimations.push(path.animate([{strokeDashoffset: String(lengths[i])}, {strokeDashoffset:'0'}], {delay:inkTiming[i][0],duration:inkTiming[i][1],easing:inkEase,fill:'both'}));
-  });
-  // Sample a gentle arc. Equal time spacing and a single easing keep velocity continuous.
-  const flight = Array.from({length:121}, (_, i) => {
-    const t = i / 120;
-    const p = t * t * (3 - 2 * t);
-    return { offset:t, transform:`translate(${36 + 905 * p}px, ${12 - 20 * Math.sin(Math.PI * p) - 8 * p}px) rotate(${-3 + 6 * p}deg)` };
-  });
-  welcomeAnimations.push(pen.animate(flight,{duration:11000,easing:'linear',fill:'both'}));
-  const presence = pen.animate([{opacity:0,offset:0},{opacity:.85,offset:.12},{opacity:.85,offset:.8},{opacity:0,offset:1}],{duration:11000,easing:'linear',fill:'both'});
-  presence.onfinish = finishWelcome;
-  welcomeAnimations.push(presence);
-  for (const wing of scene.querySelectorAll('.angel-wing')) {
-    welcomeAnimations.push(wing.animate([{transform:'rotate(-2deg)'},{transform:'rotate(2deg)'}],{duration:2400,iterations:5,direction:'alternate',easing:'cubic-bezier(.77,0,.175,1)'}));
-  }
-  scene.classList.add('is-writing', 'playing');
-  replay.innerHTML = '<span aria-hidden="true">↗</span> Ver el logo completo';
-  if (document.hidden) welcomeAnimations.forEach(animation=>animation.pause());
+function animateWelcome(element, frames, options) {
+  const animation = element.animate(frames, { fill:'both', ...options });
+  welcomeAnimations.push(animation);
+  return animation;
 }
-document.addEventListener('visibilitychange',()=>{
-  scene.toggleAttribute('data-paused',document.hidden);
-  welcomeAnimations.forEach(animation=>document.hidden?animation.pause():animation.play());
+function playWelcome() {
+  finishWelcome();
+  if (reduceMotion.matches) return;
+  const row = scene.querySelector('.brand-lockup').getBoundingClientRect();
+  const mark = bloom.getBoundingClientRect();
+  const center = row.left + row.width / 2 - mark.left - mark.width / 2;
+  const farSide = row.right - mark.right;
+  scene.classList.add('is-unfolding');
+  // A single flower blooms, rolls right, then opens the name as it returns home.
+  animateWelcome(bloom, [
+    {transform:`translateX(${center}px) rotate(-35deg) scale(.82)`,opacity:0,offset:0,easing:enterEase},
+    {transform:`translateX(${center}px) rotate(0deg) scale(1)`,opacity:1,offset:.18},
+    {transform:`translateX(${center}px) rotate(0deg) scale(1)`,opacity:1,offset:.28,easing:unfoldEase},
+    {transform:`translateX(${farSide}px) rotate(180deg) scale(1)`,opacity:1,offset:.55,easing:unfoldEase},
+    {transform:'translateX(0px) rotate(360deg) scale(1)',opacity:1,offset:.94},
+    {transform:'translateX(0px) rotate(360deg) scale(1)',opacity:1,offset:1}
+  ], {duration:5500,easing:'linear'});
+  animateWelcome(title, [
+    {clipPath:'inset(-15% 0 -15% 100%)',opacity:1},
+    {clipPath:'inset(-15% 0 -15% 0%)',opacity:1}
+  ], {delay:3000,duration:2200,easing:unfoldEase});
+  animateWelcome(scene.querySelector('.portrait-wrap'), [
+    {opacity:0,transform:'translateY(8px) scale(.96)'},
+    {opacity:1,transform:'translateY(0) scale(1)'}
+  ], {delay:4450,duration:1400,easing:enterEase});
+  animateWelcome(scene.querySelector('.brand-tagline'), [
+    {opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'translateY(0)'}
+  ], {delay:4750,duration:1300,easing:enterEase});
+  const finish = animateWelcome(scene.querySelector('.love-thread'), [
+    {clipPath:'inset(0 100% 0 0)',opacity:0},{clipPath:'inset(0 0% 0 0)',opacity:1}
+  ], {delay:5200,duration:1500,easing:unfoldEase});
+  document.querySelectorAll('.hero-note,.side-note,.hero-bottom>p,.hero-bottom>.button,.scroll-hint').forEach((element,i)=>{
+    animateWelcome(element,[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'translateY(0)'}],
+      {delay:4950+i*80,duration:1100,easing:enterEase});
+  });
+  finish.onfinish = finishWelcome;
+  replay.innerHTML = '<span aria-hidden="true">↗</span> Ver la portada completa';
+  if(document.hidden) welcomeAnimations.forEach(animation=>animation.pause());
+}
+document.addEventListener('visibilitychange',()=>welcomeAnimations.forEach(animation=>document.hidden?animation.pause():animation.play()));
+try { if (!sessionStorage.getItem('titis-welcome-v4')) { playWelcome(); sessionStorage.setItem('titis-welcome-v4','yes'); } } catch { playWelcome(); }
+replay.addEventListener('click',()=>{
+  if(scene.classList.contains('is-unfolding')) finishWelcome();
+  else { document.querySelector('#inicio').scrollIntoView({behavior:reduceMotion.matches?'instant':'smooth',block:'start'}); playWelcome(); }
 });
-try { if (!sessionStorage.getItem('titis-welcome-v3')) { playWelcome(); sessionStorage.setItem('titis-welcome-v3', 'yes'); } } catch { playWelcome(); }
-replay.addEventListener('click', () => {
-  if (scene.classList.contains('is-writing')) finishWelcome();
-  else { document.querySelector('#inicio').scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth', block: 'start' }); playWelcome(); }
+scene.querySelector('.bloom-trigger').addEventListener('click',()=>{
+  if(scene.classList.contains('is-unfolding')) finishWelcome();
+  else playWelcome();
 });
-function updateMotion() { replay.hidden = reduceMotion.matches; if (reduceMotion.matches) finishWelcome(); }
-updateMotion(); reduceMotion.addEventListener('change', updateMotion);
+function updateMotion() { replay.hidden=reduceMotion.matches; if(reduceMotion.matches) finishWelcome(); }
+updateMotion(); reduceMotion.addEventListener('change',updateMotion);
+// A focused visitor should never have to wait for a decorative introduction.
+document.querySelector('#inicio').addEventListener('focusin',event=>{
+  if(event.target!==replay && !event.target.closest('.bloom-trigger') && scene.classList.contains('is-unfolding')) finishWelcome();
+});
+window.addEventListener('resize',()=>{if(scene.classList.contains('is-unfolding')) finishWelcome();});
 
 // A once-only reveal, without hiding essential content or relying on animation to navigate.
 if ('IntersectionObserver' in window && !reduceMotion.matches) {
