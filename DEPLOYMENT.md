@@ -4,13 +4,13 @@
 - Proyecto: `titis-cakes`
 - Project ID: `prj_wUTx7it2K5FvAP6em8y5zaS9rJOV`
 - Account ID: `team_lWO75SlnG1lEc1gY9LzdIo2b`
-- Deployment ID: `dpl_FyC68yDgbfUEdN8rJGhqJ3QsWtNP`
+- Deployment ID actual (motion v2): `dpl_2VngrDY8RzbiqLBDCrKU2R7yKxkY`
 - Estado verificado: `READY`, entorno `production`.
-- Código publicado: `ca87f5968fb1459fe8404181a94f6f7bfa351e39`.
-- Rama de código: `codex/titis-cakes-landing`; PR #1 sin fusionar.
+- Código publicado: `10681b2fd9b4a0a40a5246babc353c4aa9efd037`.
+- Rama de código: `codex/titis-cakes-landing`; PR #1 fusionado por el propietario. La revisión motion v2 se entrega en un PR posterior.
 - Framework: estático, `framework: null`.
 - Build: `npm run build`; salida: `dist/`.
-- Build informado por plataforma: aproximadamente 2.8 segundos.
+- Build informado por plataforma: aproximadamente 2.9 segundos.
 - Fecha local: 8 de noviembre de 2026, America/El_Salvador.
 
 ## Verificación pública
@@ -19,10 +19,12 @@ Portada observada en navegador en el dominio definitivo, con ilustración, estil
 
 ## Actualizaciones
 
-La primera publicación se creó por la integración autenticada de Vercel desde el commit exacto de GitHub. El código permanece en el PR de revisión; no se fusionó automáticamente a main. No asumir un pipeline automático de producción hasta verificar la conexión Git y su rama en el panel del proyecto. Para cambios siguientes, confirmar este mismo project ID y publicar el commit aprobado, evitando crear proyectos duplicados.
+Las publicaciones se crearon por la integración autenticada de Vercel desde el commit exacto de GitHub. La revisión motion v2 se publicó directamente desde su rama, sin fusionarla automáticamente a main. Para cambios siguientes, confirmar este mismo project ID y publicar el commit aprobado, evitando crear proyectos duplicados. Antes de desplegar desde main, incorporar la revisión v2 para no reemplazar la escena nueva por la versión anterior.
 
 No se añadieron servicios de pago, variables secretas, funciones ni bases de datos. No se configuraron monitoreo, drains ni analíticas; no se realizó escaneo de errores de runtime, ya que la página publicada es estática. El build y las verificaciones funcionales previas están en QA.md.
 
 ## Recuperación
 
-Este es el primer despliegue, por lo que no existe una versión anterior de producción a la que volver. Para una actualización fallida posterior, restaurar este deployment ID desde Vercel o volver a desplegar el commit indicado. Verificar después el dominio público. Los cambios de este documento no alteran la versión publicada.
+Para volver a la bienvenida anterior, restaurar `dpl_FyC68yDgbfUEdN8rJGhqJ3QsWtNP` o desplegar el commit `ca87f5968fb1459fe8404181a94f6f7bfa351e39`. Verificar después el dominio público. Los cambios de este documento no alteran la versión publicada.
+
+Motion v2 verificado en producción: respuesta HTTP 200 sin credenciales, SVG del ángel y motion.css presentes, símbolo de ubicación eliminado. Portada y nombre completo observados en navegador en el dominio público.
