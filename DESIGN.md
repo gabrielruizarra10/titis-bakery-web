@@ -29,7 +29,7 @@ Se aplicó Jarvis Studio como director de trabajo, con `jarvis-web-design`, `jar
 - Fotografía: WebP optimizado, recorte CSS, sin alteración generativa. El pastel usa un arco; la celebración, marco de fotografía con una leve inclinación.
 - Mon Chou: referencia de calidez, composición artesanal y ritmo de empaque. No se copian logos, ilustraciones, textos ni fotos de esa marca.
 
-## Storyboard de bienvenida
+## Storyboard de bienvenida (v1, sustituida por v2)
 
 1. El retrato entra suavemente desde 15px y escala .95.
 2. El nombre aparece 180ms después, seguido del lema a los 430ms.
@@ -37,6 +37,16 @@ Se aplicó Jarvis Studio como director de trabajo, con `jarvis-web-design`, `jar
 4. A los 2400ms se retira el estado de animación; la portada permanece funcional.
 
 No se anima el rostro por separado ni se simulan gestos de una persona real. `sessionStorage` recuerda la bienvenida durante la sesión. Si almacenamiento o JavaScript fallan, la identidad y las acciones siguen visibles. La preferencia de movimiento reducido suprime transformaciones y oculta la repetición.
+
+## Revisión v2: el ángel que escribe
+
+Tras la revisión del usuario se sustituye la aparición tipográfica por caligrafía SVG propia, dibujada por segmentos reales. Un ángel vectorial original con vestido rosa, halo, alas y varita sigue el punto exacto de cada trazo (`getPointAtLength`). Los puntos de las íes se colocan al final, como en escritura manual. La escena termina con una rúbrica que forma un corazón y el ángel sale en diagonal.
+
+La secuencia completa dura aproximadamente 7.9 segundos a velocidad normal. No impide hacer scroll ni usar las acciones. Se reproduce una vez por sesión con clave de versión propia; el botón permite completarla inmediatamente o repetirla. El reloj se pausa con la pestaña oculta y no se crean bucles o partículas permanentes. La escritura usa stroke-dashoffset: es una excepción deliberada a la preferencia por transform/opacity para representar tinta real en un único SVG pequeño.
+
+Se conserva el logo original en navegación y pie de página. El retrato recibe un filtro SVG que elimina el papel blanco en render, conservando el archivo original. No se generó ni alteró un retrato de Titi. El ángel es un símbolo ilustrado, no una representación biográfica. La caligrafía es una interpretación de bienvenida, no el wordmark oficial de marca.
+
+Se elimina el símbolo antes del texto de ubicación. Los capítulos incorporan entradas escalonadas, recorte de texto, giro suave de fotografías y una composición que se revela al entrar. Reduced motion mantiene la escritura completa, desactiva al ángel y evita ocultar contenido. No se secuestra el scroll ni se añaden pantallas bloqueantes. `motion.css` concentra esta revisión.
 
 ## Interacción
 

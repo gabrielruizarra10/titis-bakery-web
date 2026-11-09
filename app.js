@@ -1,26 +1,84 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const scene = document.querySelector('#brand-scene');
 const replay = document.querySelector('#replay');
-let sceneTimer;
-function playWelcome() {
-  if (reduceMotion.matches) return;
-  clearTimeout(sceneTimer);
-  scene.classList.remove('playing');
-  void scene.offsetWidth;
-  scene.classList.add('playing');
-  sceneTimer = setTimeout(() => scene.classList.remove('playing'), 2400);
+const svgNS = 'http://www.w3.org/2000/svg';
+const ink = [...scene.querySelectorAll('.ink-stroke')];
+const pen = scene.querySelector('.angel-position');
+const dust = scene.querySelector('.fairy-dust');
+const lengths = ink.map(path => path.getTotalLength());
+const writingLength = lengths.slice(0, -1).reduce((a, b) => a + b, 0);
+const durations = lengths.map((length, i) => i === lengths.length - 1 ? 1100 : length / writingLength * 5400);
+const starts = durations.map((_, i) => durations.slice(0, i).reduce((a, b) => a + b, 0) + 650);
+const totalDuration = 7900;
+let welcomeFrame, elapsed = 0, lastFrame = 0, lastDust = 0;
+let particles = [];
+scene.classList.add('writing-ready');
+function finishWelcome() {
+  cancelAnimationFrame(welcomeFrame);
+  scene.classList.remove('is-writing', 'playing');
+  ink.forEach(path => { path.style.strokeDashoffset = '0'; });
+  pen.style.opacity = '0';
+  dust.replaceChildren(); particles = [];
+  replay.innerHTML = '<span aria-hidden="true">↻</span> Volver a sentir la magia';
 }
-try { if (!sessionStorage.getItem('titis-welcome')) { playWelcome(); sessionStorage.setItem('titis-welcome', 'yes'); } } catch { playWelcome(); }
-replay.addEventListener('click', playWelcome);
-function updateMotion() { replay.hidden = reduceMotion.matches; if (reduceMotion.matches) scene.classList.remove('playing'); }
+function drawWelcome(now) {
+  if (document.hidden) { lastFrame = 0; welcomeFrame = requestAnimationFrame(drawWelcome); return; }
+  if (lastFrame) elapsed += Math.min(now - lastFrame, 64);
+  lastFrame = now;
+  let current = 0;
+  ink.forEach((path, i) => {
+    const progress = Math.max(0, Math.min(1, (elapsed - starts[i]) / durations[i]));
+    path.style.strokeDashoffset = String(lengths[i] * (1 - progress));
+    if (elapsed >= starts[i]) current = i;
+  });
+  const progress = Math.max(0, Math.min(1, (elapsed - starts[current]) / durations[current]));
+  const p = ink[current].getPointAtLength(lengths[current] * progress);
+  const enter = Math.min(1, elapsed / 650);
+  const exit = Math.max(0, (elapsed - 7200) / 700);
+  const x = p.x - 42 - (1 - enter) * 80 + exit * 100;
+  const y = p.y - Math.sin(elapsed / 170) * 2 - exit * 110;
+  pen.setAttribute('transform', `translate(${x} ${y}) rotate(${Math.sin(elapsed / 320) * 5} 0 -20)`);
+  pen.style.opacity = String(Math.min(enter, 1 - exit));
+  if (elapsed > 650 && elapsed < 7200 && elapsed - lastDust > 75) {
+    const star = document.createElementNS(svgNS, 'use');
+    star.setAttribute('href', '#ink-star'); dust.append(star);
+    particles.push({ element: star, x: p.x, y: p.y, born: elapsed }); lastDust = elapsed;
+  }
+  particles = particles.filter(particle => {
+    const age = (elapsed - particle.born) / 900;
+    if (age >= 1) { particle.element.remove(); return false; }
+    particle.element.setAttribute('transform', `translate(${particle.x - age * 15} ${particle.y + age * 24}) rotate(${age * 90}) scale(${.4 * (1 - age) + .05})`);
+    particle.element.style.opacity = String(1 - age); return true;
+  });
+  if (elapsed < totalDuration) welcomeFrame = requestAnimationFrame(drawWelcome);
+  else finishWelcome();
+}
+function playWelcome() {
+  if (reduceMotion.matches) { finishWelcome(); return; }
+  finishWelcome(); elapsed = 0; lastFrame = 0; lastDust = 0;
+  ink.forEach((path, i) => { path.style.strokeDasharray = String(lengths[i]); path.style.strokeDashoffset = String(lengths[i]); });
+  scene.classList.add('is-writing', 'playing');
+  replay.innerHTML = '<span aria-hidden="true">↗</span> Ver el logo completo';
+  welcomeFrame = requestAnimationFrame(drawWelcome);
+}
+try { if (!sessionStorage.getItem('titis-welcome-v2')) { playWelcome(); sessionStorage.setItem('titis-welcome-v2', 'yes'); } } catch { playWelcome(); }
+replay.addEventListener('click', () => {
+  if (scene.classList.contains('is-writing')) finishWelcome();
+  else { document.querySelector('#inicio').scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth', block: 'start' }); playWelcome(); }
+});
+function updateMotion() { replay.hidden = reduceMotion.matches; if (reduceMotion.matches) finishWelcome(); }
 updateMotion(); reduceMotion.addEventListener('change', updateMotion);
 
 // A once-only reveal, without hiding essential content or relying on animation to navigate.
 if ('IntersectionObserver' in window && !reduceMotion.matches) {
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-  }), { threshold: .08 });
-  document.querySelectorAll('.section-heading, .product, .legacy-text, .celebration-copy, .steps li').forEach(el => { el.classList.add('reveal-ready'); observer.observe(el); });
+  }), { threshold: .12 });
+  document.querySelectorAll('.section-heading, .product, .legacy-label, .legacy-text, .legacy-signature, .celebration-photo, .celebration-copy, .how-title, .steps li, .order > *, footer > *').forEach((el, i) => {
+    el.classList.add('reveal-ready');
+    el.style.setProperty('--reveal-delay', `${(i % 3) * 70}ms`);
+    observer.observe(el);
+  });
 }
 
 const number = '50378777124';

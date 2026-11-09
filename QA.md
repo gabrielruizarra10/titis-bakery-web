@@ -1,5 +1,9 @@
 # Verificación · 8 de noviembre de 2026
 
+## Revisión de motion v2
+
+Comprobado en el navegador local: escritura SVG progresiva y ángel siguiendo los trazos; retrato sobre crema sin rectángulo blanco/negro después de corregir la composición del filtro; nombre completo legible al terminar; etiqueta de ubicación sin símbolo; repetición y finalización anticipada (todos los trazos completos y reloj detenido). Verificación visual a 390 × 844 y escritorio; sin overflow horizontal en móvil. Galería con Escape y dedicatoria continúan funcionando. Entradas al navegar a productos y legado observadas en navegador. Sintaxis/build/diff comprobados de nuevo antes del despliegue. Reduced motion revisado en código, no en hardware real. No se han medido FPS ni rendimiento en teléfono real.
+
 ## Ejecutado
 
 - `npm run check`: comprobación de sintaxis de aplicación, servidor local y build.
