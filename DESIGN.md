@@ -50,6 +50,12 @@ Se elimina el símbolo antes del texto de ubicación. Los capítulos incorporan 
 
 ## Interacción
 
+### Revisión v3: alas y halo, movimiento continuo
+
+La referencia del usuario reemplaza al personaje: símbolo lineal de dos alas con halo, aproximadamente la mitad del tamaño visual anterior, sin rostro, cuerpo, varita ni partículas. Un único vuelo de 11 segundos avanza de izquierda a derecha por un arco suave sobre el nombre. El progreso espacial tiene velocidad continua y solo cambia 6 grados de orientación durante todo el recorrido. Las alas oscilan 4 grados en 2.4 segundos, sin aleteo rápido. La escritura tiene velocidad lineal y gestos solapados, independientes del vuelo: el símbolo ya no salta entre segmentos ni regresa a poner los puntos. Se conservan completar/repetir, pausa de pestaña oculta, bienvenida una vez por sesión y reduced motion.
+
+La secuencia se ejecuta con Web Animations API, sin bucle JS por fotograma ni creación de partículas. Se eliminaron los destellos de la portada. Esta revisión sustituye la coreografía v2, conservada arriba como historial de decisiones.
+
 WhatsApp con mensajes por contexto; galería en `dialog` nativo con Escape y retorno de foco; botón de dedicatoria con `aria-expanded`, región de estado y apertura reversible. Hover solo para puntero fino. Foco visible, enlace para saltar contenido y texto alternativo en imágenes.
 
 ## Referencias
