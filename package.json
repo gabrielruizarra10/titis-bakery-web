@@ -1,0 +1,1 @@
+{"name":"titis-cakes","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node scripts/server.mjs","build":"node scripts/build.mjs","check":"node --check app.js && node --check scripts/server.mjs && node --check scripts/build.mjs"}}
