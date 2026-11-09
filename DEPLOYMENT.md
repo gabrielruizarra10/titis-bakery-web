@@ -4,13 +4,13 @@
 - Proyecto: `titis-cakes`
 - Project ID: `prj_wUTx7it2K5FvAP6em8y5zaS9rJOV`
 - Account ID: `team_lWO75SlnG1lEc1gY9LzdIo2b`
-- Deployment ID actual (motion v3): `dpl_Dnj4vVCbikrsU5c3Sfxec1moFBaa`
+- Deployment ID actual (motion v4): `dpl_8MQW2JTDkzQwfXaFQUHeCuK6XUDk`
 - Estado verificado: `READY`, entorno `production`.
-- Código publicado: `761ae5e1089efee27fc5eeb131fd3f87f01665fe`.
+- Código publicado: `b657397c7e96bf3a3d86a2b4eae2d9277c970903`.
 - Rama de código: `codex/titis-cakes-landing`; PR #1 fusionado por el propietario. La revisión motion v2 se entrega en un PR posterior.
 - Framework: estático, `framework: null`.
 - Build: `npm run build`; salida: `dist/`.
-- Build informado por plataforma: aproximadamente 3.2 segundos.
+- Build informado por plataforma: aproximadamente 2.7 segundos.
 - Fecha local: 8 de noviembre de 2026, America/El_Salvador.
 
 ## Verificación pública
@@ -30,3 +30,5 @@ Para volver a la bienvenida anterior, restaurar `dpl_FyC68yDgbfUEdN8rJGhqJ3QsWtN
 Motion v2 verificado en producción: respuesta HTTP 200 sin credenciales, SVG del ángel y motion.css presentes, símbolo de ubicación eliminado. Portada y nombre completo observados en navegador en el dominio público.
 
 Motion v3 sustituye al personaje por alas y halo lineales, con vuelo independiente de 11 segundos. Verificado visualmente en el dominio público; artefactos anteriores se conservan para recuperación. PR #2 contiene la revisión actual.
+
+Motion v4 vigente: flor rosa interactiva despliega el nombre editorial y luego el resto de la portada, en una secuencia de 6.7 segundos. Ángel y caligrafía retirados. Estado READY y dominio público verificados; apertura y composición final observadas en navegador. Para recuperar la v3 puede restaurarse `dpl_Dnj4vVCbikrsU5c3Sfxec1moFBaa`.
