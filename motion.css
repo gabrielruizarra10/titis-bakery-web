@@ -1,0 +1,7 @@
+/* Discreet entrances; no blocking intro, persistent loops or scroll interception. */
+.hero-photo{animation:photo-arrive 900ms var(--ease-out) both}
+.reveal{transition:opacity 650ms var(--ease-out) var(--delay,0ms),transform 650ms var(--ease-out) var(--delay,0ms)}
+.reveal:not(.visible){opacity:0;transform:translateY(18px)}
+.story-art.reveal:not(.visible){transform:translateY(20px) rotate(-2deg)}
+@keyframes photo-arrive{from{opacity:.7;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-photo{animation:none}.reveal{transition:none}.reveal:not(.visible){opacity:1;transform:none}.button,.photo-button>img{transition:none}}

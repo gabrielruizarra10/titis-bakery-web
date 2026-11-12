@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3a261c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<symbol id="cake" viewBox="0 0 120 110"><path d="M20 53Q60 68 100 53V85Q60 102 20 85ZM20 53Q60 35 100 53M20 64q8 12 16 0 8 12 16 0 8 12 16 0 8 12 16 0 8 12 16 0M60 42V21M56 17q-5-6 4-13 8 8 0 13ZM14 92q46 20 92 0"/><path d="M40 47V30M80 47V30"/></symbol>
+<symbol id="baby" viewBox="0 0 120 110"><path d="M24 65Q60 51 96 65V91Q60 105 24 91ZM24 65Q60 79 96 65M53 17l10-5v43M48 55h27M18 97h84"/><path d="M27 28v10m-5-5h10m64 9v10m-5-5h10" stroke="#bb544c"/></symbol>
+<symbol id="spoon" viewBox="0 0 120 110"><path d="M19 60h82q-4 32-41 32T19 60ZM38 97h44M70 54l15-24M86 29c-18-3-3-24 7-20 9 5 1 23-7 20ZM40 48q-6-6 0-12m15 12q-6-6 0-12"/><path d="M30 61q30 10 60 0" stroke="#bb544c"/></symbol>
+<symbol id="almond" viewBox="0 0 120 110"><path d="M60 15C13 40 25 91 60 96c35-5 47-56 0-81ZM60 23c-14 27-14 45 0 67M61 31q18 27 0 54M49 37l-7 11m0 16 5 11m29-27 3 12M22 20Q43 12 50 30Q29 35 22 20Z"/><path d="M30 21l15 7" stroke="#bb544c"/></symbol>
+<symbol id="slice" viewBox="0 0 120 110"><path d="m22 51 57-26 20 28-77 13ZM22 66v26l77-14V53M22 81l77-14M79 25V14m-4-5q-3-5 4-9 6 5 0 9ZM16 98l91-17"/><path d="m32 64 6-13 10 10 9-21 10 17 10-25 10 22" stroke="#bb544c"/></symbol>
+<symbol id="flower" viewBox="0 0 120 110"><path d="M60 56C25 28 49 10 60 42c11-32 35-14 0 14 35-11 43 16 9 16 15 33-17 39-16 5-28 22-44-6-11-13-35-12-20-36 18-8Z"/><circle cx="60" cy="62" r="9" fill="#f0bed1"/></symbol>
+</svg>

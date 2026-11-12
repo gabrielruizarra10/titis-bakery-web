@@ -1,41 +1,49 @@
-# Titi’s Cakes · Un legado de amor
+# Titi’s Cakes · Cada vida merece celebrarse
 
-Landing artesanal en español para una pastelería familiar de El Salvador. Una bienvenida animada con el retrato original de la marca, productos reales, un homenaje simbólico, galería accesible y cotizaciones por WhatsApp.
+Pastelería familiar por encargo en El Salvador. Landing boutique en español, con fotografías reales, opciones alimenticias para consultar, historia familiar y cotización mediante WhatsApp.
 
-Sitio publicado: **https://titis-cakes.vercel.app/**. Identidad del proyecto, versión y verificaciones en `DEPLOYMENT.md`.
+Sitio: [titis-cakes.vercel.app](https://titis-cakes.vercel.app/). Publicación y recuperación: DEPLOYMENT.md.
 
-## Ver y construir
+## Desarrollo
 
-Requiere Node.js 22 o superior. No necesita instalar dependencias.
+Node.js 22 o superior. Sin dependencias de ejecución ni instalación necesaria.
 
 ```sh
 npm run dev
 # http://127.0.0.1:4173
 npm run check
+npm test
 npm run build
 ```
 
-El build produce `dist/`, listo para alojamiento estático. Las rutas relativas permiten servirlo en un subdirectorio. `vercel.json` configura el build y la salida en Vercel. El servidor local es solo para desarrollo y no debe usarse como servidor de producción.
+El build produce dist/ con los archivos estáticos necesarios. El servidor local es solo de desarrollo. vercel.json conserva el proyecto estático y la salida dist/.
 
-## Contenido y mantenimiento
+## Mantenimiento
 
-- `index.html`: textos, secciones, fotos y metadatos.
-- `styles.css`: sistema visual, composición móvil y animaciones.
-- `app.js`: bienvenida una vez por sesión, repetición opcional, galería y dedicatoria.
-- `assets/`: imágenes optimizadas WebP, logo original y detalles SVG propios.
-- `DESIGN.md`: decisiones de marca y aportes de Jarvis Studio.
-- `QA.md`: evidencia de comprobaciones y límites.
+- index.html: contenido, fotos, opciones, formulario y metadatos.
+- styles.css y motion.css: sistema visual responsive y movimiento discreto.
+- app.js: navegación, galería, vista previa local y preparación de la consulta.
+- order-utils.js: validación y construcción del mensaje; scripts/check-orders.mjs verifica sus casos principales.
+- assets/: tres fotografías originales optimizadas, retrato original, ilustraciones SVG y fuentes locales con licencia.
+- PRODUCT.md, SURFACE.md y DESIGN.md: contexto, contrato de diseño y decisiones actuales.
+- QA.md: verificaciones realizadas y límites.
 
-El contacto comercial es **+503 7877 7124**. Los botones con `data-order` reciben un mensaje contextual en `app.js`. Instagram proviene del manual: `titiscakes_sv`. No hay carrito, pagos, analíticas, cookies publicitarias ni datos enviados a un servidor propio.
+Contacto comercial: **+503 7877 7124**. Instagram del manual: **@titiscakes_sv**. No hay tienda, pagos, reservas automáticas, analíticas ni un servidor que guarde respuestas.
 
-## Marca y fotografías
+## Flujo de consulta
 
-El retrato ilustrado se extrajo del manual proporcionado y se recortó sin redibujarlo. `logo-original.jpg` conserva el recurso completo. Las tres fotos son las proporcionadas por el propietario, con autorización de uso en este proyecto. La niña de la fotografía de celebración **no es Titi** y el sitio no la identifica como tal. No reutilizar estos recursos para otros proyectos.
+El cliente indica nombre, teléfono, fecha, ocasión y porciones; puede añadir sabor, diseño, ingredientes a evitar y una referencia visual. Se comprueban los campos necesarios y se muestra un mensaje editable mediante los campos. El cliente decide abrir WhatsApp; el sitio no envía el mensaje automáticamente.
 
-La tipografía de marca Luminary Serif Medium y la secundaria ITC Bauhaus no se suministraron como fuentes web licenciadas. Esta versión emplea Georgia y Trebuchet MS como alternativas de sistema, sin extraer ni distribuir las fuentes incrustadas en el PDF. Para fidelidad tipográfica exacta, añadir los archivos web con licencia y sustituir los tokens `--serif` y `--sans`.
+La imagen opcional (JPG/PNG/WebP, hasta 8 MB) se previsualiza únicamente en el dispositivo. WhatsApp no admite adjuntar ese archivo mediante un enlace wa.me: el cliente lo adjunta manualmente en el chat. El mensaje recuerda el nombre del archivo.
 
-`scripts/prepare-assets.py` permite reproducir la extracción y optimización con Python, pypdf y Pillow. Recibe cuatro rutas: manual PDF, foto celebración, foto pastel y foto pie. Es una herramienta editorial opcional; el sitio y su build no dependen de Python.
+Sin JavaScript, los enlaces directos a WhatsApp, navegación, contenido y fotografías siguen disponibles. El formulario explica su alternativa de contacto.
 
-## Futuras etapas
+## Marca y recursos
 
-Añadir catálogo real, sabores, anticipación mínima, zona y condiciones de entrega cuando la familia los confirme. Se puede incorporar después un CMS o pedidos, sin convertir el homenaje en un registro público de datos familiares. Antes de publicación pública, revisar textos con la familia, confirmar Instagram y definir dominio/hosting; después añadir URL e imagen social absoluta a los metadatos.
+El retrato ilustrado se extrajo del manual suministrado sin redibujarlo. Se conserva logo-original.jpg. Las tres fotografías fueron aportadas y autorizadas para este proyecto. La niña de la foto de celebración **no es Titi**; el sitio no la presenta como tal. No reutilizar los recursos familiares en otros proyectos.
+
+Bodoni Moda y Karla se alojan localmente con sus licencias OFL. Son una nueva elección editorial para el rediseño; no se extraen fuentes incrustadas del PDF. Mon Chou y Debaere orientan la composición, sin reutilizar sus logos, ilustraciones o fotos. La procedencia se documenta en DESIGN.md.
+
+## Contenido pendiente
+
+Ampliar la galería con fotografías reales y añadir imágenes del proceso cuando la familia las aporte. Confirmar sabores, precios, plazos y condiciones de entrega antes de publicarlos. La disponibilidad de adaptaciones e ingredientes se conversa antes de aceptar cada encargo.
