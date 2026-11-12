@@ -1,72 +1,50 @@
-# Dirección creativa · Titi’s Cakes
+# Dirección creativa · Titi’s boutique
+Actualizada: 11 de noviembre de 2026. Sustituye las bienvenidas experimentales anteriores, conservadas en DESIGN-HISTORY.md.
 
 ## Intención
 
-Una celebración luminosa del amor que permanece. El homenaje se expresa con la identidad original, el lazo, flores, una línea con un corazón y una dedicatoria que el visitante decide descubrir. No se cuentan circunstancias médicas ni del fallecimiento. Las imágenes comerciales acompañan los momentos de celebración, no representan a Titi.
-
-## Jarvis Studio: decisiones observables
-
-Se aplicó Jarvis Studio como director de trabajo, con `jarvis-web-design`, `jarvis-logo-motion` y `jarvis-frontend-architecture` al inicio, ampliando a `animate` y `jarvis-web-quality` durante implementación y comprobación.
-
-| Orientación | Decisión realizada | Resultado observable |
-| --- | --- | --- |
-| Diseño desde contenido real | Dos productos y una celebración familiar; sin reseñas, métricas, sabores ni precios inventados | Galería breve y auténtica |
-| Identidad antes de efectos | Extracción del retrato original del PDF; paleta exacta | Titi conserva su representación original |
-| Logo según formato real | El logo era una imagen plana; se anima su revelado completo, no se atribuyen capas inexistentes | Retrato y nombre legibles; repetición opcional |
-| Movimiento con intención | Bienvenida ocasional de 2.4 s, feedback de 160 ms y diálogo de 250 ms | Sin loader bloqueante ni loops continuos |
-| Menor herramienta suficiente | CSS, WAAPI e IntersectionObserver, sin dependencias de ejecución | Sitio estático ampliable y sencillo de mantener |
-| Móvil como composición propia | Notas alrededor del retrato, productos apilados y portada adaptada a `svh` | Lectura y navegación comprobadas a 390 px |
-| Evidencia antes de afirmar | Build, galería, dedicatoria, imágenes, ancho y capturas | Alcance de QA explícito en QA.md |
+Una pastelería hecha para celebrar: francesa artesanal en lo visual, cercana en su voz, inclusiva en la conversación. La portada lleva directamente a un encargo personalizado. El recuerdo de Titi habita en su retrato y la historia de mamá y Fati, desde la gratitud y la alegría.
 
 ## Sistema visual
 
-- Rosa `#f0bed1`: homenaje, cinta y cierre.
-- Crema `#fbfce7`: fondo, respiro y luz.
-- Cacao `#3a261c`: texto y acciones de alto contraste.
-- Color secundario derivado `#715547`: notas y texto de apoyo, no sustituye los colores de marca.
-- Georgia: títulos editoriales; cursiva para notas personales. Trebuchet MS: navegación y lectura. Son alternativas de sistema; ver la nota de licencia en README.
-- Espacio: 6vw lateral, 110px entre capítulos en escritorio, 65px en móvil; composición abierta y asimétrica.
-- Fotografía: WebP optimizado, recorte CSS, sin alteración generativa. El pastel usa un arco; la celebración, marco de fotografía con una leve inclinación.
-- Mon Chou: referencia de calidez, composición artesanal y ritmo de empaque. No se copian logos, ilustraciones, textos ni fotos de esa marca.
+| Elemento | Decisión |
+| --- | --- |
+| Fondo | Crema #FBFCE7, con superficies marfil discretas |
+| Texto y acciones | Cacao #3A261C; apoyo #715547 |
+| Acento | Rosa #F0BED1 en rayas, marcos y pequeños detalles |
+| Títulos | Bodoni Moda, serif editorial; cursiva en frases seleccionadas |
+| Lectura y controles | Karla, sans serif local |
+| Fotografía | Recursos reales optimizados WebP, recortes editoriales sin alterar los productos |
+| Composición | Portada de texto/fotografía, galería abierta, inclusión destacada, relato y formulario |
+| Detalles | Rayas de empaque, sello tipográfico y pequeños dibujos SVG propios |
+| Movimiento | Foto de portada 900 ms; entradas únicas de 18 px/650 ms con escalonado de 60 ms |
+| Móvil | Contenido apilado, opciones en dos columnas cuando caben, formulario en una columna |
 
-## Storyboard de bienvenida (v1, sustituida por v2)
+No hay intro bloqueante, ángeles, escritura simulada, scroll secuestrado ni bucles decorativos. Con movimiento reducido se muestran todos los contenidos sin transformaciones.
 
-1. El retrato entra suavemente desde 15px y escala .95.
-2. El nombre aparece 180ms después, seguido del lema a los 430ms.
-3. Dos destellos y la línea con un pequeño corazón completan la composición.
-4. A los 2400ms se retira el estado de animación; la portada permanece funcional.
+## Referencias y decisiones de Jarvis Studio
 
-No se anima el rostro por separado ni se simulan gestos de una persona real. `sessionStorage` recuerda la bienvenida durante la sesión. Si almacenamiento o JavaScript fallan, la identidad y las acciones siguen visibles. La preferencia de movimiento reducido suprime transformaciones y oculta la repetición.
+Jarvis Studio dirigió la selección de jarvis-web-design, impeccable y mobile-native. jarvis-web-quality y jarvis-release-workflow se incorporan en la entrega.
 
-## Revisión v2: el ángel que escribe
+- Mon Chou aporta el lenguaje de empaque artesanal, rayas y calidez.
+- Debaere orienta el protagonismo fotográfico y la jerarquía editorial.
+- Gula Sana, Eleven Eleven y Partake inspiran comunicación cercana y opciones claras. No se trasladan sus garantías alimenticias, certificaciones ni capacidades.
+- El brief familiar fija dirección, colores y contenido. Se construye directamente sobre los recursos reales y el sitio existente.
+- El retrato original conserva identidad; la fotografía de celebración representa una familia, no a Titi.
+- La galería ofrece inspiración y lleva al formulario conservando la referencia elegida.
+- Las cuatro opciones alimenticias abren una conversación. Se explican ingredientes y posibles trazas sin promesas de aptitud médica.
+- La consulta genera un mensaje revisable antes de abrir WhatsApp. No añade una tienda ni una reserva.
 
-Tras la revisión del usuario se sustituye la aparición tipográfica por caligrafía SVG propia, dibujada por segmentos reales. Un ángel vectorial original con vestido rosa, halo, alas y varita sigue el punto exacto de cada trazo (`getPointAtLength`). Los puntos de las íes se colocan al final, como en escritura manual. La escena termina con una rúbrica que forma un corazón y el ángel sale en diagonal.
+## Procedencia de recursos
 
-La secuencia completa dura aproximadamente 7.9 segundos a velocidad normal. No impide hacer scroll ni usar las acciones. Se reproduce una vez por sesión con clave de versión propia; el botón permite completarla inmediatamente o repetirla. El reloj se pausa con la pestaña oculta y no se crean bucles o partículas permanentes. La escritura usa stroke-dashoffset: es una excepción deliberada a la preferencia por transform/opacity para representar tinta real en un único SVG pequeño.
+Tres fotografías autorizadas por el propietario: pastel verde con margaritas, pie casero y celebración familiar. No hay imágenes de producto o proceso generadas ni fotografías prestadas de las referencias.
 
-Se conserva el logo original en navegación y pie de página. El retrato recibe un filtro SVG que elimina el papel blanco en render, conservando el archivo original. No se generó ni alteró un retrato de Titi. El ángel es un símbolo ilustrado, no una representación biográfica. La caligrafía es una interpretación de bienvenida, no el wordmark oficial de marca.
+Retrato y logo extraídos del manual del propietario. Las ilustraciones pequeñas de pastel, cuchara, almendras, porción y flor se dibujaron como SVG propio. La portada social es una captura real de la nueva portada, con fotografía y composición del sitio.
 
-Se elimina el símbolo antes del texto de ubicación. Los capítulos incorporan entradas escalonadas, recorte de texto, giro suave de fotografías y una composición que se revela al entrar. Reduced motion mantiene la escritura completa, desactiva al ángel y evita ocultar contenido. No se secuestra el scroll ni se añaden pantallas bloqueantes. `motion.css` concentra esta revisión.
+Bodoni Moda y Karla: archivos latin 400 normal de @fontsource, versión 5.3.0, con licencias OFL incluidas en assets/fonts/. No se distribuyen tipografías extraídas del PDF. Las cursivas de presentación se sintetizan desde el archivo disponible.
 
-## Interacción
+## Accesibilidad e interacción
 
-### Revisión v3: alas y halo, movimiento continuo
+Navegación nativa con menú móvil, Escape y foco visible. Diálogo nativo para fotos con cierre y retorno de foco. Etiquetas visibles, errores vinculados, resumen enfocable y vista previa anunciable. Hover limitado a dispositivos que lo soportan; controles táctiles y campos de al menos 16 px. Reduced motion conserva acceso inmediato a toda la información.
 
-La referencia del usuario reemplaza al personaje: símbolo lineal de dos alas con halo, aproximadamente la mitad del tamaño visual anterior, sin rostro, cuerpo, varita ni partículas. Un único vuelo de 11 segundos avanza de izquierda a derecha por un arco suave sobre el nombre. El progreso espacial tiene velocidad continua y solo cambia 6 grados de orientación durante todo el recorrido. Las alas oscilan 4 grados en 2.4 segundos, sin aleteo rápido. La escritura tiene velocidad lineal y gestos solapados, independientes del vuelo: el símbolo ya no salta entre segmentos ni regresa a poner los puntos. Se conservan completar/repetir, pausa de pestaña oculta, bienvenida una vez por sesión y reduced motion.
-
-La secuencia se ejecuta con Web Animations API, sin bucle JS por fotograma ni creación de partículas. Se eliminaron los destellos de la portada. Esta revisión sustituye la coreografía v2, conservada arriba como historial de decisiones.
-
-WhatsApp con mensajes por contexto; galería en `dialog` nativo con Escape y retorno de foco; botón de dedicatoria con `aria-expanded`, región de estado y apertura reversible. Hover solo para puntero fino. Foco visible, enlace para saltar contenido y texto alternativo en imágenes.
-
-## Referencias
-
-### Revisión v4: una flor despliega la identidad
-
-Se inspeccionaron fotogramas del video Recording 2026-11-08 191227.mp4 aportado por el propietario. La referencia muestra una flor que aparece aislada, rota y se desplaza antes de revelar el nombre Flourish. Se toma el principio de revelado, sin reutilizar sus recursos, marca ni tipografía. No se interpreta el reproductor del video como una interacción de la web.
-
-La apertura actual reemplaza el ángel y la caligrafía por la flor rosa propia y el nombre editorial. Primero la flor aparece sola centrada; se desplaza hacia la derecha y regresa a la izquierda descubriendo el nombre con una máscara. Después entran el retrato original, lema, línea del corazón, notas y acciones. Duración aproximada: 6.7 segundos, sin bloquear navegación. Clic en la flor o botón de repetición relanzan la escena; el control de completar la termina de inmediato. Focus en una acción, resize y reduced motion completan la escena para no impedir el uso. Pestaña oculta pausa las animaciones.
-
-La coreografía usa WAAPI y transform/opacity/clip-path. Distancias calculadas desde el tamaño real del lockup; composición móvil probada a 390 × 844. Se retiran del código el ángel, sus partículas y los paths de la caligrafía anterior. La referencia de marca original sigue rigiendo colores y retrato.
-
-Manual de marca proporcionado por la familia (10 páginas, inspección visual completa).
-Mon Chou, identidad de Anna Derkach: https://www.fivestarlogo.com/post/mon-chou-bakery-coffee-bar-brand-identity-design-anna-derkach
+Las pruebas y sus límites se registran en QA.md. La fotografía de proceso queda pendiente de recursos reales; no se rellena con imágenes inventadas.
