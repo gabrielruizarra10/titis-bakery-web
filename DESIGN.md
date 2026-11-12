@@ -10,8 +10,8 @@ Una pastelería hecha para celebrar: francesa artesanal en lo visual, cercana en
 | Elemento | Decisión |
 | --- | --- |
 | Fondo | Crema #FBFCE7, con superficies marfil discretas |
-| Texto y acciones | Cacao #3A261C; apoyo #715547 |
-| Acento | Rosa #F0BED1 en rayas, marcos y pequeños detalles |
+| Texto | Cacao #3A261C; apoyo #715547 |
+| Primario y acento | Rosa #F0BED1 en rayas y detalles; terracota #BB544C en acciones y foco |
 | Títulos | Bodoni Moda, serif editorial; cursiva en frases seleccionadas |
 | Lectura y controles | Karla, sans serif local |
 | Fotografía | Recursos reales optimizados WebP, recortes editoriales sin alterar los productos |

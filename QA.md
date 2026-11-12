@@ -33,3 +33,8 @@ El identificador, commit y verificación pública de esta versión se registran 
 Revisión independiente de cierre: capturas actuales y código contrastados con el brief; sin hallazgos materiales pendientes. Contrastes calculados por el revisor: placeholder 4.94:1 y texto secundario 6.53:1. La revisión independiente no sustituye las pruebas de interacción descritas arriba.
 
 Paleta final solicitada: portada recapturada en escritorio y móvil390, CTA computado rgb(187,84,76) y texto rgb(255,254,247); sin overflow. Error en cacao con borde terracota.
+
+Revisión independiente del ajuste final de paleta: sin correcciones pendientes; marfil sobre terracota 4.63:1 y cacao sobre rosa 8.81:1.
+
+## Verificación de producción
+Nueva portada y paleta observadas en https://titis-cakes.vercel.app/. Imágenes cargadas, errores del formulario vacío y consola sin errores comprobados. HTTP200 sin credenciales para HTML/CSS/app.js/order-utils.js, coincidentes con el código revisado. Publicación automática tras merge del propietario; detalle y límite de acceso de la API en DEPLOYMENT.md.
