@@ -15,3 +15,5 @@ FIRST VIEWPORT: cabecera crema con retrato pequeño, nombre y navegación clara.
 FORM: dirección boutique francesa fijada por el brief familiar y las referencias Debaere/Mon Chou; código directo sobre la base existente. Las capturas del usuario guían el carácter, no son una maqueta que deba copiarse. Herramientas auxiliares de generación de direcciones no ejecutadas según adaptación Codex de la skill.
 
 FINISH: revisión visual escritorio/móvil, controles y formulario probados sin enviar mensajes; documentación de decisiones, límites de contenido y despliegue verificado.
+
+PALETTE UPDATE: referencia final del propietario añade terracota #BB544C como acento para acciones, foco y detalles. Rosa primario #F0BED1, crema secundario #FBFCE7 y cacao neutro #3A261C se mantienen.

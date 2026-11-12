@@ -31,3 +31,5 @@ Solo se publican las tres fotos aportadas. No hay fotografías del proceso dispo
 El identificador, commit y verificación pública de esta versión se registran en DEPLOYMENT.md después del despliegue. El historial de las pruebas de las aperturas anteriores puede consultarse en Git.
 
 Revisión independiente de cierre: capturas actuales y código contrastados con el brief; sin hallazgos materiales pendientes. Contrastes calculados por el revisor: placeholder 4.94:1 y texto secundario 6.53:1. La revisión independiente no sustituye las pruebas de interacción descritas arriba.
+
+Paleta final solicitada: portada recapturada en escritorio y móvil390, CTA computado rgb(187,84,76) y texto rgb(255,254,247); sin overflow. Error en cacao con borde terracota.

@@ -48,3 +48,6 @@ Bodoni Moda y Karla: archivos latin 400 normal de @fontsource, versión 5.3.0, c
 Navegación nativa con menú móvil, Escape y foco visible. Diálogo nativo para fotos con cierre y retorno de foco. Etiquetas visibles, errores vinculados, resumen enfocable y vista previa anunciable. Hover limitado a dispositivos que lo soportan; controles táctiles y campos de al menos 16 px. Reduced motion conserva acceso inmediato a toda la información.
 
 Las pruebas y sus límites se registran en QA.md. La fotografía de proceso queda pendiente de recursos reales; no se rellena con imágenes inventadas.
+
+## Paleta final confirmada por el propietario
+Rosa primario #F0BED1, crema secundario #FBFCE7, cacao neutro #3A261C y acento terracota #BB544C. El terracota reemplaza el acento rosa oscuro anterior en CTA, foco y detalles ilustrados. Los CTA usan texto marfil para superar 4.5:1; errores en cacao con borde terracota. Franja superior rosa con texto cacao.

@@ -25,3 +25,5 @@ Manual original, retrato ilustrado, foto de pastel verde con flores, pie casero 
 ## Stack and accessibility
 
 HTML/CSS/JavaScript estático existente. Build Node, sin dependencias de ejecución. GitHub gabrielruizarra10/titis-bakery-web; proyecto Vercel titis-cakes. Teclado, foco visible, etiquetas, errores de formulario, movimiento reducido, zoom y tamaños táctiles. Prueba real de teléfono pendiente si no hay hardware conectado.
+
+Paleta final explícita: rosa #F0BED1 (primario), crema #FBFCE7 (secundario), cacao #3A261C (neutro), terracota #BB544C (acento).
