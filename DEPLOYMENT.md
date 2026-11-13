@@ -31,3 +31,5 @@ No se añadieron bases de datos, servicios de pago, secretos, analíticas ni mon
 
 ## Apertura de chocolate en revisión · 12 de noviembre de 2026
 Rama codex/chocolate-hero: portada nueva antes de la landing boutique, fondos WebP responsive y logo SVG real. No se fusiona ni reemplaza producción automáticamente. npm run check/test/build y revisión local completados. La vista previa automática, si Vercel la genera, se identifica desde el estado del commit en GitHub. No se cambian las protecciones de acceso.
+
+Implementación de la apertura: f8e2ba68ec28cdc3991be1791ef6c49883591974. PR #4 abierto y fusionable: https://github.com/gabrielruizarra10/titis-bakery-web/pull/4. Estado Vercel informado por GitHub: success. Enlace del despliegue de vista previa: https://vercel.com/gabriel-ruiz/titis-cakes/9ZUxoGvBe6z4AoSmLyEMx37XfAKm. El panel redirige a login; la API sigue devolviendo 403. No se obtuvo una URL directa del dominio de preview ni se verificó su render remoto; el render local sí se probó. No se redujeron protecciones ni se solicitaron permisos nuevos para entregar. El PR #3 de documentación queda sustituido por #4.
