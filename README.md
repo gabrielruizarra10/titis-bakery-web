@@ -47,3 +47,6 @@ Bodoni Moda y Karla se alojan localmente con sus licencias OFL. Son una nueva el
 ## Contenido pendiente
 
 Ampliar la galería con fotografías reales y añadir imágenes del proceso cuando la familia las aporte. Confirmar sabores, precios, plazos y condiciones de entrega antes de publicarlos. La disponibilidad de adaptaciones e ingredientes se conversa antes de aceptar cada encargo.
+
+## Apertura de chocolate (v2.1)
+Nueva primera sección de pantalla completa antes de la landing boutique. Capas en assets/hero/, coreografía CSS en hero.css y controles mínimos en hero.js. La portada anterior y el formulario permanecen completos debajo. Procesamiento, prompt de edición, comparación y límites en design/hero/README.md. npm test incluye el presupuesto de la portada; node scripts/sync-hero.mjs sincroniza el SVG inline tras regenerarlo.

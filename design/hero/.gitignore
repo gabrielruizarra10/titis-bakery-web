@@ -1,0 +1,10 @@
+*
+!.gitignore
+!README.md
+!hero-original.png
+!bg-retouched.png
+!cream-mask.png
+!inpaint-mask.png
+!logo-original-crop.png
+!compare.html
+!motion-review.html
