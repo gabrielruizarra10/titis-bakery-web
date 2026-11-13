@@ -20,7 +20,6 @@ const photos = [
   ['favorito-7.webp','Pastel de cumpleaños','Un diseño hecho para celebrar · Cumpleaños'],
   ['favorito-8.webp','Pastel artesanal','Decoración a mano · Para compartir'],
   ['favorito-9.webp','Pastel personalizado','Colores y detalles a tu gusto · Por encargo'],
-  ['favorito-10.webp','Cheesecake de frutos rojos','Cheesecake keto · Frutos rojos'],
   ['favorito-11.webp','Red velvet en capas','Un detalle de cerca · Red velvet'],
   ['favorito-12.webp','Betún hecho en casa','Textura suave y sabor a fresa · Decoración']
 ];
@@ -48,4 +47,5 @@ document.querySelectorAll('.want-one').forEach(b=>b.addEventListener('click',()=
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');let carouselFrame=0,lastTime=0;function drift(time){if(!lastTime)lastTime=time;const dt=Math.min(time-lastTime,40);lastTime=time;if(!reduced.matches&&!track.matches(':hover,:focus-within')&&document.visibilityState==='visible'){track.scrollLeft+=dt*.008;if(track.scrollLeft>=track.scrollWidth-track.clientWidth-1)track.scrollLeft=0;}carouselFrame=requestAnimationFrame(drift);}carouselFrame=requestAnimationFrame(drift);reduced.addEventListener('change',()=>{if(reduced.matches)cancelAnimationFrame(carouselFrame);else{lastTime=0;carouselFrame=requestAnimationFrame(drift);}});
 const contactBar=document.querySelector('.contact-bar'),header=document.querySelector('.header');const sticky=new IntersectionObserver(([entry])=>header.classList.toggle('is-scrolled',!entry.isIntersecting));sticky.observe(document.querySelector('.chocolate-intro'));
 const floatWA=make('a','floating-wa');floatWA.href='https://wa.me/50378777124?text='+encodeURIComponent('Hola, quiero cotizar un pastel de Titi’s Cakes');floatWA.setAttribute('aria-label','Cotiza tu pastel por WhatsApp');floatWA.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7l-4.2 1.1 1.1-4.1A8 8 0 1 1 20 11.6Z"/></svg>';document.body.append(floatWA);const showWA=new IntersectionObserver(([e])=>floatWA.classList.toggle('shown',!e.isIntersecting));showWA.observe(document.querySelector('.chocolate-intro'));
+const hideOverForm=new IntersectionObserver(([e])=>floatWA.classList.toggle('over-form',e.isIntersecting),{threshold:.12});hideOverForm.observe(order);
 if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.08});document.querySelectorAll('.favorites,.unique-intro,.inclusive-intro,.need-card,.steps-new li,.story-photo,.story-copy-new').forEach(el=>{el.classList.add('reveal');observer.observe(el);});}

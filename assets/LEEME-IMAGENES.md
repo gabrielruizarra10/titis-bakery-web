@@ -10,7 +10,6 @@ Sobrescribe cada archivo manteniendo su nombre y dimensiones; no hace falta camb
 | `favoritos/favorito-4.webp` | Favoritos 4 | 1200×1500 | 4:5 | Diseño personalizado |
 | `favoritos/favorito-5.webp` | Favoritos 5 | 1200×1500 | 4:5 | Postre casero |
 | `favoritos/favorito-6.webp` | Favoritos 6 | 1200×1500 | 4:5 | Pastel personalizado |
-| `favoritos/favorito-10.webp` | Favoritos 10 | 1200×1500 | 4:5 | Cheesecake keto con frutos rojos |
 | `favoritos/favorito-11.webp` | Favoritos 11 | 1200×1500 | 4:5 | Capas de pastel red velvet |
 | `favoritos/favorito-12.webp` | Favoritos 12 | 1200×1500 | 4:5 | Betún rosa y textura artesanal |
 | `necesidades/primer-anito.webp` | Para todos: primer añito | 1200×1500 | 4:5 | Pastel para bebé |
