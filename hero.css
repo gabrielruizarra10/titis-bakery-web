@@ -1,0 +1,53 @@
+/* The previous boutique surface is untouched. This cover owns its own scope. */
+.chocolate-intro{--intro-cream:#fef5e6;--intro-enter:cubic-bezier(.2,.7,.2,1);position:relative;isolation:isolate;overflow-anchor:none;display:grid;place-items:center;height:100svh;min-height:540px;padding:44px 24px 100px;overflow:hidden;overflow:clip;background:#2a1510;color:var(--intro-cream);text-align:center}
+.intro-background,.intro-background picture,.intro-background img,.intro-shade{position:absolute;inset:0;width:100%;height:100%}
+.intro-background{z-index:-2}
+.intro-background img{object-fit:cover;object-position:center}
+.intro-shade{z-index:-1;background:linear-gradient(180deg,#2a15100a 35%,#2a15104d 76%,#2a151080)}
+.intro-content{width:100%;display:flex;flex-direction:column;align-items:center}
+.intro-mark{display:block;width:auto;height:clamp(180px,33svh,270px);flex:none;overflow:visible;margin-bottom:6px}
+.intro-title{font:400 clamp(58px,8.9vw,128px)/1.05 var(--serif);letter-spacing:-.035em;white-space:nowrap;max-width:100%;margin:0}
+.intro-word{display:inline-block;white-space:nowrap}
+.intro-letter{display:inline-block}
+.intro-title .intro-space{display:inline-block;width:.22em}
+.intro-tagline{font:400 clamp(18px,1.9vw,24px)/1.5 var(--sans);margin:24px 0 27px;max-width:100%}
+.intro-cta{background:var(--cream);border-color:var(--cream);color:var(--cocoa);min-width:226px;justify-content:center}
+.intro-cta:focus-visible,.intro-scroll:focus-visible,.intro-motion-toggle:focus-visible{outline:2px solid var(--pink);outline-offset:6px}
+.intro-bottom{position:absolute;bottom:calc(23px + env(safe-area-inset-bottom,0px));left:24px;right:24px;display:flex;justify-content:center;align-items:center;min-height:44px}
+.intro-scroll{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:56px;min-width:64px;font-size:10px;letter-spacing:.08em;padding:4px}
+.intro-scroll svg{width:22px;height:25px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.intro-motion-toggle{position:absolute;left:0;bottom:0;min-height:44px;padding:8px 0;color:var(--intro-cream);font-size:11px;text-decoration:underline;text-underline-offset:4px}
+.intro-motion-toggle[aria-pressed=true]{color:var(--pink)}
+@media(hover:hover) and (pointer:fine){.intro-cta:hover{background:var(--pink);border-color:var(--pink);color:var(--cocoa)}}
+@media(max-width:760px){.chocolate-intro{padding:calc(36px + env(safe-area-inset-top,0px)) 20px calc(110px + env(safe-area-inset-bottom,0px));min-height:540px}.intro-mark{height:clamp(160px,26svh,238px);margin-bottom:14px}.intro-title{font-size:clamp(47px,14.3vw,78px);letter-spacing:-.035em}.intro-tagline{font-size:16px;margin:24px 0;line-height:1.5}.intro-bottom{left:20px;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px))}.intro-motion-toggle{font-size:10px;max-width:98px;text-align:left}.intro-cta{min-height:54px}}
+@media(max-height:600px) and (min-width:761px){.chocolate-intro{min-height:420px;padding-top:22px;padding-bottom:78px}.intro-mark{height:135px}.intro-title{font-size:72px}.intro-tagline{font-size:16px;margin:10px 0 15px}.intro-bottom{bottom:12px}}
+@media(max-width:359px){.intro-title{font-size:43px}.intro-mark{height:180px}.intro-tagline{font-size:15px}}
+
+/* States are visible by default, even if animation support/JavaScript fails. */
+@media(prefers-reduced-motion:no-preference){
+  .intro-background{animation:intro-background-arrive .8s var(--intro-enter) both}
+  .intro-background picture{animation:intro-background-zoom 24s var(--ease-out) both}
+  .intro-logo-fill{animation:intro-fill .6s var(--intro-enter) 1.6s both}
+  .intro-bow{transform-box:view-box;transform-origin:65px 57px;animation:intro-fill .6s var(--intro-enter) 1.6s both,intro-bow-sway .8s var(--ease-in-out) 2.2s both}
+  .intro-logo-drawing{animation:intro-drawing-opacity 2.2s linear both}
+  .intro-draw path{stroke-dasharray:1;stroke-dashoffset:0;animation:intro-stroke .52s var(--ease-in-out) var(--draw-at) both}
+  .intro-letter{animation:intro-letter .7s var(--intro-enter) calc(2s + var(--letter-index)*60ms) both}
+  .intro-tagline{animation:intro-detail .8s var(--intro-enter) 3s both}
+  .intro-cta{animation:intro-detail .6s var(--intro-enter) 3.4s both}
+  .intro-scroll{animation:intro-detail .6s var(--intro-enter) 3.4s both}
+  .intro-scroll svg{animation:intro-arrow 2.6s var(--ease-in-out) 4s infinite}
+}
+@keyframes intro-background-arrive{from{opacity:0}to{opacity:1}}
+@keyframes intro-background-zoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+@keyframes intro-fill{from{opacity:0}to{opacity:1}}
+@keyframes intro-drawing-opacity{0%,18%{opacity:0}23%,73%{opacity:1}100%{opacity:0}}
+@keyframes intro-stroke{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes intro-bow-sway{0%{transform:rotate(0)}30%{transform:rotate(-6deg)}66%{transform:rotate(4deg)}100%{transform:rotate(0)}}
+@keyframes intro-letter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes intro-detail{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes intro-arrow{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+/* Pause controls long background/arrow motion; first reveal stays accessible. */
+.intro-paused .intro-background picture,.intro-paused .intro-scroll svg,.intro-offscreen .intro-background picture,.intro-offscreen .intro-scroll svg{animation-play-state:paused}
+.intro-complete .intro-logo-fill,.intro-complete .intro-bow,.intro-complete .intro-letter,.intro-complete .intro-tagline,.intro-complete .intro-cta,.intro-complete .intro-scroll{animation:none!important;opacity:1;transform:none}
+.intro-complete .intro-logo-drawing{animation:none!important;opacity:0}
+@media(prefers-reduced-motion:reduce){.chocolate-intro *{animation:none!important;transition:none!important}.intro-logo-drawing{opacity:0}.intro-logo-fill,.intro-letter,.intro-tagline,.intro-cta,.intro-scroll{opacity:1;transform:none}.intro-motion-toggle{display:none}}

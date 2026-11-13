@@ -10,8 +10,8 @@ Una pastelería hecha para celebrar: francesa artesanal en lo visual, cercana en
 | Elemento | Decisión |
 | --- | --- |
 | Fondo | Crema #FBFCE7, con superficies marfil discretas |
-| Texto y acciones | Cacao #3A261C; apoyo #715547 |
-| Acento | Rosa #F0BED1 en rayas, marcos y pequeños detalles |
+| Texto | Cacao #3A261C; apoyo #715547 |
+| Primario y acento | Rosa #F0BED1 en rayas y detalles; terracota #BB544C en acciones y foco |
 | Títulos | Bodoni Moda, serif editorial; cursiva en frases seleccionadas |
 | Lectura y controles | Karla, sans serif local |
 | Fotografía | Recursos reales optimizados WebP, recortes editoriales sin alterar los productos |
@@ -51,3 +51,6 @@ Las pruebas y sus límites se registran en QA.md. La fotografía de proceso qued
 
 ## Paleta final confirmada por el propietario
 Rosa primario #F0BED1, crema secundario #FBFCE7, cacao neutro #3A261C y acento terracota #BB544C. El terracota reemplaza el acento rosa oscuro anterior en CTA, foco y detalles ilustrados. Los CTA usan texto marfil para superar 4.5:1; errores en cacao con borde terracota. Franja superior rosa con texto cacao.
+
+## Apertura de chocolate · 12 de noviembre de 2026
+Petición nueva del propietario: portada a pantalla completa basada en su imagen, antes del diseño boutique existente. Fondo reconstruido sin letras, logo vectorizado a partir de su máscara y nombre como H1 HTML en Bodoni Moda. Trazo breve, relleno, balanceo único del moño y entrada escalonada del nombre; lema y CTA a los cuatro segundos. Se omite parpadeo para conservar los ojos. La foto de betún se retocó mediante imagegen integrado tras fallar la limpieza local por parches; esto no genera productos del catálogo ni redibuja la carita. Entrada y controles no bloquean la navegación. Se añade pausa para zoom/flecha y fallbacks reduced motion/noscript. Es una nueva capa introductoria: la página anterior desde su franja superior conserva exactamente el contenido/markup. Especificación, prompt y procedencia en design/hero/README.md.

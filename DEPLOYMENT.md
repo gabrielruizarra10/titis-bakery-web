@@ -1,34 +1,35 @@
-# Publicación en Vercel
+# Publicación de Titi’s Cakes · boutique
+
+## Versión publicada · 11 de noviembre de 2026
 
 - URL pública: https://titis-cakes.vercel.app/
-- Proyecto: `titis-cakes`
-- Project ID: `prj_wUTx7it2K5FvAP6em8y5zaS9rJOV`
-- Account ID: `team_lWO75SlnG1lEc1gY9LzdIo2b`
-- Deployment ID actual (motion v4): `dpl_8MQW2JTDkzQwfXaFQUHeCuK6XUDk`
-- Estado verificado: `READY`, entorno `production`.
-- Código publicado: `b657397c7e96bf3a3d86a2b4eae2d9277c970903`.
-- Rama de código: `codex/titis-cakes-landing`; PR #1 fusionado por el propietario. La revisión motion v2 se entrega en un PR posterior.
-- Framework: estático, `framework: null`.
-- Build: `npm run build`; salida: `dist/`.
-- Build informado por plataforma: aproximadamente 2.7 segundos.
-- Fecha local: 8 de noviembre de 2026, America/El_Salvador.
+- Código revisado: `0e85a6abb82414778123173ff649c19940fe8df7`.
+- [PR #2](https://github.com/gabrielruizarra10/titis-bakery-web/pull/2) fusionado por el propietario; merge informado por GitHub: `0dbcb8363239495292cb485f40cbbca3748c260c`.
+- La integración GitHub–Vercel publicó automáticamente después del merge. No se realizó un segundo despliegue manual.
+- Paleta final: rosa #F0BED1, crema #FBFCE7, cacao #3A261C y terracota #BB544C.
+- Framework estático, build `npm run build`, salida `dist/`; sin dependencias de ejecución.
 
 ## Verificación pública
 
-Portada observada en navegador en el dominio definitivo, con ilustración, estilos, texto y navegación presentes. Solicitud HTTP independiente sin cookies ni credenciales: **200**, contenido de marca presente y sin pantalla de autenticación. No se cambiaron las protecciones de previews ni se crearon enlaces temporales de acceso.
+Portada y colores finales observados en navegador en el dominio definitivo. Las cinco imágenes del contenido cargaron con ancho natural positivo. Formulario publicado probado vacío: muestra los cinco errores necesarios y enfoca el resumen. Sin errores ni advertencias capturadas en consola.
 
-## Actualizaciones
+Comprobación independiente por HTTP, sin cookies ni credenciales: index.html, styles.css, app.js y order-utils.js respondieron **200** y coincidieron con los archivos revisados (normalizando finales de línea). No se enviaron mensajes ni pedidos. El resto del recorrido y límites de QA están en QA.md.
 
-Las publicaciones se crearon por la integración autenticada de Vercel desde el commit exacto de GitHub. La revisión motion v2 se publicó directamente desde su rama, sin fusionarla automáticamente a main. Para cambios siguientes, confirmar este mismo project ID y publicar el commit aprobado, evitando crear proyectos duplicados. Antes de desplegar desde main, incorporar la revisión v2 para no reemplazar la escena nueva por la versión anterior.
+## Proyecto y conexión
 
-No se añadieron servicios de pago, variables secretas, funciones ni bases de datos. No se configuraron monitoreo, drains ni analíticas; no se realizó escaneo de errores de runtime, ya que la página publicada es estática. El build y las verificaciones funcionales previas están en QA.md.
+- Proyecto: `titis-cakes`.
+- Project ID: `prj_wUTx7it2K5FvAP6em8y5zaS9rJOV`.
+- Account ID: `team_lWO75SlnG1lEc1gY9LzdIo2b`.
+
+La conexión directa de Vercel devolvió 403 al intentar desplegar y consultar el proyecto. Se solicitó renovación de acceso por el flujo de consentimiento; no se pudo confirmar la concesión. Esto no impidió la publicación automática desde GitHub. El ID del deployment nuevo y su estado interno READY no se consultaron por esa limitación; la versión servida sí se verificó directamente. No se cambiaron las protecciones del proyecto ni se crearon enlaces de bypass.
 
 ## Recuperación
 
-Para volver a la bienvenida anterior, restaurar `dpl_FyC68yDgbfUEdN8rJGhqJ3QsWtNP` o desplegar el commit `ca87f5968fb1459fe8404181a94f6f7bfa351e39`. Verificar después el dominio público. Los cambios de este documento no alteran la versión publicada.
+Versión anterior conocida: motion v4, deployment `dpl_8MQW2JTDkzQwfXaFQUHeCuK6XUDk`, código `b657397c7e96bf3a3d86a2b4eae2d9277c970903`. Para revertir, restaurar ese deployment desde Vercel o realizar un revert revisado en GitHub; comprobar después el dominio público. Historial anterior en DEPLOYMENT-HISTORY.md.
 
-Motion v2 verificado en producción: respuesta HTTP 200 sin credenciales, SVG del ángel y motion.css presentes, símbolo de ubicación eliminado. Portada y nombre completo observados en navegador en el dominio público.
+No se añadieron bases de datos, servicios de pago, secretos, analíticas ni monitoreo. No se realizó un escaneo de logs de plataforma por la limitación de acceso; la consola del navegador se revisó. Los cambios de documentación posteriores no modifican el código publicado.
 
-Motion v3 sustituye al personaje por alas y halo lineales, con vuelo independiente de 11 segundos. Verificado visualmente en el dominio público; artefactos anteriores se conservan para recuperación. PR #2 contiene la revisión actual.
+## Apertura de chocolate en revisión · 12 de noviembre de 2026
+Rama codex/chocolate-hero: portada nueva antes de la landing boutique, fondos WebP responsive y logo SVG real. No se fusiona ni reemplaza producción automáticamente. npm run check/test/build y revisión local completados. La vista previa automática, si Vercel la genera, se identifica desde el estado del commit en GitHub. No se cambian las protecciones de acceso.
 
-Motion v4 vigente: flor rosa interactiva despliega el nombre editorial y luego el resto de la portada, en una secuencia de 6.7 segundos. Ángel y caligrafía retirados. Estado READY y dominio público verificados; apertura y composición final observadas en navegador. Para recuperar la v3 puede restaurarse `dpl_Dnj4vVCbikrsU5c3Sfxec1moFBaa`.
+Implementación de la apertura: f8e2ba68ec28cdc3991be1791ef6c49883591974. PR #4 abierto y fusionable: https://github.com/gabrielruizarra10/titis-bakery-web/pull/4. Estado Vercel informado por GitHub: success. Enlace del despliegue de vista previa: https://vercel.com/gabriel-ruiz/titis-cakes/9ZUxoGvBe6z4AoSmLyEMx37XfAKm. El panel redirige a login; la API sigue devolviendo 403. No se obtuvo una URL directa del dominio de preview ni se verificó su render remoto; el render local sí se probó. No se redujeron protecciones ni se solicitaron permisos nuevos para entregar. El PR #3 de documentación queda sustituido por #4.

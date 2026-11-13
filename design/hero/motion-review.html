@@ -1,0 +1,7 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Revisión temporal de la portada</title><style>body{margin:0;background:#2a1510;color:#fef5e6;font:14px Arial}header{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px}button{font:inherit;padding:10px;border:1px solid #fef5e6;background:none;color:inherit;cursor:pointer}iframe{width:100%;height:calc(100vh - 65px);border:0;display:block}span{min-width:120px}</style><header><span id="status">Cargando…</span><button data-at="800">0.8 s</button><button data-at="1400">1.4 s</button><button data-at="1900">1.9 s</button><button data-at="2600">2.6 s</button><button data-at="4000">4.0 s</button><button id="play">Reproducir</button></header><iframe src="../../" title="Portada real con su CSS de producción"></iframe><script>
+const frame=document.querySelector('iframe'),status=document.querySelector('#status');let animations=[];
+frame.addEventListener('load',async()=>{await frame.contentDocument.fonts.ready;animations=frame.contentDocument.querySelector('.chocolate-intro').getAnimations({subtree:true});setTime(800);});
+function setTime(time){for(const a of animations){a.pause();a.currentTime=time;}status.textContent='Tiempo: '+(time/1000).toFixed(1)+' s';}
+document.querySelectorAll('[data-at]').forEach(b=>b.addEventListener('click',()=>setTime(Number(b.dataset.at))));
+document.querySelector('#play').addEventListener('click',()=>{for(const a of animations){a.currentTime=0;a.play();}status.textContent='Reproduciendo';});
+</script></html>
